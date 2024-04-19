@@ -1,0 +1,27 @@
+{
+  "exclude": ["dist", "client"],
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ES2015",
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "plugins": [
+      { "transform": "restfuncs-transformer",  "transformProgram": true},
+      { "transform": "typia/lib/transform" },
+      { "transform": "typescript-rtti/dist/transformer" }
+    ],
+  }
+}
