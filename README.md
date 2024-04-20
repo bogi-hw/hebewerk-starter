@@ -34,6 +34,7 @@ TODO: Welche Plugins installieren in VS-Code ?
 - [NodeJs](https://nodejs.org/en/download) installieren
 - npm packages holen und App ausführen (diesen Schritt auch bei Github Codespaces):
 ```bash
+cd hebewerk-starter
 npm install
 npn run dev
 ```
