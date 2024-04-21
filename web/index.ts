@@ -1,5 +1,5 @@
 import {RestfuncsClient} from "restfuncs-client";
-import {GreeterSession} from "../GreeterSession.js" // Import to have types
+import {GreeterSession} from "../server/GreeterSession.js" // Import to have types
 
 (async () => {
     // TODO: Why does VS-Code on github workspaces complain on the following line?:
