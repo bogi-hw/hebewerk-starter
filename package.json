@@ -6,8 +6,8 @@
   "main": "./server",
   "scripts": {
     "dev": "npm run clean && nodemon --exec cross-env NODE_ENV=development tsx server.ts",
-    "clean": "tspc --build --clean && rimraf client/dist",
-    "build": "tspc --build --force && cd client && vite build",
+    "clean": "tspc --build --clean && rimraf web/dist",
+    "build": "tspc --build --force && cd web && vite build",
     "start": "cross-env NODE_ENV=production node --enable-source-maps server.js"
   },
   "dependencies": {

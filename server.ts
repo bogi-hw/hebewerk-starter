@@ -13,17 +13,17 @@ import helmet from "helmet";
 
     // Client web:
     if (process.env.NODE_ENV === 'development') {
-        // Serve client web through vite dev server:
+        // Serve web web through vite dev server:
         const viteDevServer = await createServer({
             server: {
                 middlewareMode: true
             },
-            root: "client",
+            root: "web",
             base: "/",
         });
         app.use(viteDevServer.middlewares)
     } else {
-        app.use(helmet(), express.static('client/dist')) // Serve pre-built web (npm run build)
+        app.use(helmet(), express.static('web/dist')) // Serve pre-built web (npm run build)
     }
 
     app.listen(port)
