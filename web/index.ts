@@ -1,5 +1,3 @@
-import { RestfuncsClient } from "restfuncs-client";
-import { GreeterSession } from "../server/GreeterSession.js"; // Import to have types
 import p5 from "p5";
 
 // *** Wir zeichnen auf einen Canvas mit p5.js. ****
@@ -15,11 +13,5 @@ new p5((sketch: p5) => {
         sketch.background(220);
         sketch.ellipse(sketch.width / 2, sketch.height / 2, 50, 50);
     };
-}, document.body);
+}, document.getElementById("p5-canvas")!);
 
-// **** Eine Funktion auf dem Server aufrufen und Ergebnis ausgeben: ****
-(async () => {
-    // TODO: Why does VS-Code on github workspaces complain on the following line?:
-    const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
-    console.log(await greeterSession.greet("Bob"));
-})()

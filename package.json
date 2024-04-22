@@ -18,7 +18,10 @@
     "restfuncs-client": "^2.0.0",
     "helmet": "^7.1.0",
     "p5": "^1.9.2",
-    "@types/p5": "^1.7.6"
+    "@types/p5": "^1.7.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@mui/material": "^5.15.2"
   },
   "devDependencies": {
     "tsx": "^4.7.0",

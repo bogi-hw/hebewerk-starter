@@ -1,0 +1,21 @@
+import ReactDOM from "react-dom";
+import React, {useEffect, useState} from "react";
+import { RestfuncsClient } from "restfuncs-client";
+import { GreeterSession } from "../server/GreeterSession.js"; // Import to have types
+
+function App() {
+    return <div>Hello, TODO: Hier ein paar schöne MUI Elemente einfügen</div>
+}
+
+(async () => {
+    // Die Komponente "App" auf die aktuelle Seite (index.html) rendern:
+    const rootDiv = document.createElement("div");
+    document.body.append(rootDiv);
+    ReactDOM.render(<App/>, document.getElementById("ui-with-react_container"));
+
+    // **** Eine Funktion auf dem Server aufrufen und Ergebnis ausgeben: ****
+    // TODO: Why does VS-Code on github workspaces complain on the following line?:
+    const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
+    console.log(await greeterSession.greet("Bob"));
+
+})()
