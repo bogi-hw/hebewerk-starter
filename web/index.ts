@@ -17,8 +17,9 @@ new p5((sketch: p5) => {
     };
 }, document.body);
 
+// **** Eine Funktion auf dem Server aufrufen und Ergebnis ausgeben: ****
 (async () => {
     // TODO: Why does VS-Code on github workspaces complain on the following line?:
     const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
-    document.getElementById("main")!.textContent = await greeterSession.greet("Bob")
+    console.log(await greeterSession.greet("Bob"));
 })()
