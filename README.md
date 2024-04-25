@@ -11,11 +11,11 @@ Dieses Projekt...
 
 ## Wo bekomme ich eine IDE her ?
 
-**Tl;dr:** Klicke auf [StackBlitz](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Findex.ts), zum reinschnuppern. Ansonsten VS-Code (lokal).
+**Tl;dr:** Klicke auf [StackBlitz](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts), zum reinschnuppern. Ansonsten VS-Code (lokal).
 
 | IDE                                  | Beschreibung | Läuft wo | Basiert auf | Ohne Account | Verpacken als Docker moglich | Schnell |   Kostenlos | Git integriert | Einstellungen und Plugins
 | :---------------: | :-------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: |
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Findex.ts) | Für die Ungeduldigen (nur 1 Klick 👍). | Vollständig im Browser (krank !!!) | VS-Code | ✅ | ❌ | ✅ | ✅ | ❌ | ❌
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts) | Für die Ungeduldigen (nur 1 Klick 👍). | Vollständig im Browser (krank !!!) | VS-Code | ✅ | ❌ | ✅ | ✅ | ❌ | ❌
 Visual Studio Code (lokal) **Empfohlen**|  Runterladen und lokal installieren (Vorteil, siehe unten). | Lokal | VS-Code | ✅ | <a title="Images für Linux bauen ist unter Linux möglich">❌*</a> | ✅ | ✅ | ✅ | ✅
 Github Codespaces | Github account anlegen. Dannach klicke (hier) auf **&lt;&gt; Code** -> Codespaces. | In der Cloud | VS-Code | ❌ | ✅ | ❌ | ✅ | ✅ | ✅
 Jetbrains Webstorm | Für die ultra Cracks. | Lokal | Jetbrains | ❌ | <a title="Images für Linux bauen ist unter Linux möglich">❌*</a> | ✅ | <a title="Ca. 10€/Monat">❌*</a> | ✅ | ✅
