@@ -1,7 +1,7 @@
 # Hebewerk Starter
 
 Dieses Projekt...
-- **serviert eine einfache, statische HTML Seite** (mittels Vite)
+- **serviert eine HTML Seite** (mittels Vite)
     - Bindet die **[p5.js](https://p5js.org/)** Biblothek ein, mit der man schnell ein einfach paar grafische Spielereien auf den Bildschirm zaubert ;)
 - **ist eine vollständige Client / Server + Datenbank- Anwendung**. 
   - Serverseitig läuft ebebfalls Javascript (nodejs). Darunter dann:
@@ -13,12 +13,12 @@ Dieses Projekt...
 
 **Tl;dr:** Klicke auf [StackBlitz](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts), zum reinschnuppern. Ansonsten VS-Code (lokal).
 
-| IDE                                  | Beschreibung | Läuft wo | Basiert auf | Ohne Account | Verpacken als Docker moglich | Schnell |   Kostenlos | Git integriert | Einstellungen und Plugins
-| :---------------: | :-------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: |
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts) | Für die Ungeduldigen (nur 1 Klick 👍). | Vollständig im Browser (krank !!!) | VS-Code | ✅ | ❌ | ✅ | ✅ | ❌ | ❌
-Visual Studio Code (lokal) **Empfohlen**|  Runterladen und lokal installieren (Vorteil, siehe unten). | Lokal | VS-Code | ✅ | <a title="Images für Linux bauen ist unter Linux möglich">❌*</a> | ✅ | ✅ | ✅ | ✅
-Github Codespaces | Github account anlegen. Dannach klicke (hier) auf **&lt;&gt; Code** -> Codespaces. | In der Cloud | VS-Code | ❌ | ✅ | ❌ | ✅ | ✅ | ✅
-Jetbrains Webstorm | Für die ultra Cracks. | Lokal | Jetbrains | ❌ | <a title="Images für Linux bauen ist unter Linux möglich">❌*</a> | ✅ | <a title="Ca. 10€/Monat">❌*</a> | ✅ | ✅
+| IDE                                  | Beschreibung | Läuft wo | Basiert auf | Ohne Account | Verpacken als Docker moglich | Schnell |   Kostenlos | Git integriert | Server debugging | browser debugging (im original Code) | Einstellungen und Plugins
+| :---------------: | :-------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: | :--------------: |
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts) | Für die Ungeduldigen (nur 1 Klick 👍). | Vollständig im Browser (krank !!!) | VS-Code | ✅ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌
+Visual Studio Code (lokal) **Empfohlen**|  Runterladen und lokal installieren (Vorteil, siehe unten). | Lokal | VS-Code | ✅ | <a title="Images für Linux bauen ist nur unter Linux möglich">❌*</a> | ✅ | ✅ | ✅ | ✅ | ✅ | ✅
+Github Codespaces | Github account anlegen. Dannach klicke (hier) auf **&lt;&gt; Code** -> Codespaces. | In der Cloud | VS-Code | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅
+Jetbrains Webstorm | Für die ultra Cracks. | Lokal | Jetbrains | ❌ | <a title="Images für Linux bauen ist nur unter Linux möglich">❌*</a> | ✅ | <a title="Ca. 10€/Monat">❌*</a> | ✅ | ✅ | ✅ | ✅
 
 `*` = hover mich.
 
