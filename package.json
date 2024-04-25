@@ -29,6 +29,7 @@
     "restfuncs-transformer": "^1.0.0",
     "nodemon": "^2.0.15",
     "cross-env": "^7.0.3",
-    "rimraf": "=5.0.5"
+    "rimraf": "=5.0.5",
+    "@types/node": "^20.12.7"
   }
 }
