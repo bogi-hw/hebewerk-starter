@@ -4,10 +4,10 @@ Dieses Projekt...
 - **serviert eine HTML Seite** (mittels Vite)
     - Bindet die **[p5.js](https://p5js.org/)** Biblothek ein, mit der man schnell ein einfach paar grafische Spielereien auf den Bildschirm zaubert ;)
 - **ist eine vollständige Client / Server + Datenbank- Anwendung**. 
-  - Serverseitig läuft ebebfalls Javascript (nodejs). Darunter dann:
+  - Serverseitig läuft ebebfalls Javascript (Nodejs). Darunter dann:
     - Express: Webserver
-    - Restfuncs: Für eine super einfache Client<>Server Kommunikation (RPC)
-    - MiniDb: Eine fast nicht exisiterende Datenbank, die nur den Javascript-Objektbaum als .json Datei wegspeichert (oder lädt). Damit kommt man schon mal ziemlig weit und wir wollen es am Anfang nicht zu kompliziert machen. (kein SQL, keine Tabellen, kein ORM, keine Beziehungskonfiguration, kein extra Server)
+    - [Restfuncs](https://github.com/bogeeee/restfuncs): Für eine super einfache Client<>Server Kommunikation (RPC)
+    - [MembraceDb](https://github.com/bogeeee/membrace-db): Eine fast nicht exisiterende Datenbank, die nur den Javascript-Objektbaum als .json Datei wegspeichert (oder lädt). Damit kommt man schon mal ziemlig weit und wir wollen es am Anfang nicht zu kompliziert machen. (kein SQL, keine Tabellen, kein ORM, keine Beziehungskonfiguration, kein extra Server)
 
 ## Wo bekomme ich eine IDE her ?
 
