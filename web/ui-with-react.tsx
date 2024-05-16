@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
-import React, {useEffect, useState} from "react";
+import * as React from "react";
+import {useEffect, useState} from "react";
 import { RestfuncsClient } from "restfuncs-client";
 import { GreeterSession } from "../server/GreeterSession.js"; // Import to have types
 
