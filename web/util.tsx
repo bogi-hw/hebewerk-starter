@@ -4,8 +4,8 @@ import {
     Button,
     ButtonGroup,
     Classes,
-    Dialog,
-    DialogProps,
+    Dialog as BlueprintDialog,
+    DialogProps as BlueprintDialogProps,
     Intent,
     NonIdealState,
     NonIdealStateIconSize,
@@ -16,6 +16,9 @@ import {
 import ReactDOM from "react-dom";
 import {RestfuncsClient} from "restfuncs-client";
 import {IServerSession} from "restfuncs-common";
+import { Dialog,  DialogTitle, Paper} from "@mui/material";
+import {DialogProps} from "@mui/material/Dialog";
+import Draggable from 'react-draggable';
 
 /**
  * (Dumb) Execute passed funktion
@@ -43,9 +46,13 @@ export function DebugInstanceId(props: {}) {
 
 /**
  * More friendly way to show a modal blueprint dialog. Usage:
- *
- * await showBlueprintDialog({title: "SayHello"},(props) => {
- *   return <div>
+ * <pre><code>
+   import { Button, ButtonGroup, Classes, Intent,} from "@blueprintjs/core";
+   import "@blueprintjs/core/lib/css/blueprint.css"; // don't forget these
+   import "@blueprintjs/icons/lib/css/blueprint-icons.css"; // don't forget these
+
+   const result = await showBlueprintDialog({title: "SayHello"},(props) => {
+     return <div>
                 <div className={Classes.DIALOG_BODY}>
                     ...
                 </div>
@@ -62,11 +69,12 @@ export function DebugInstanceId(props: {}) {
  * });
  *
  * ... code after dialog was closed...
- *
+ * </code></pre>
+ * For a dialog with dragging and resizing, {@see showMuiDialog}
  * @param dialogProps
  * @param ContentComponent
  */
-export async function showBlueprintDialog<T>(dialogProps: Partial<DialogProps>, ContentComponent: FunctionComponent<{resolve: (result: T) => void, close: () => void}>) {
+export async function showBlueprintDialog<T>(dialogProps: Partial<BlueprintDialogProps>, ContentComponent: FunctionComponent<{resolve: (result: T) => void, close: () => void}>) {
     return new Promise<T|undefined>((resolve) => {
         // We need some <div/> to render into
         const targetDiv = document.createElement("div");
@@ -86,10 +94,78 @@ export async function showBlueprintDialog<T>(dialogProps: Partial<DialogProps>, 
                 targetDiv.remove(); // clean up target div. A bit dirty but works
             }
 
-            return <Dialog usePortal={true} portalContainer={document.body} isOpen={open} {...dialogProps} onClose={() => {
+            return <BlueprintDialog usePortal={true} portalContainer={document.body} isOpen={open} {...dialogProps} onClose={() => {
                 close();
                 resolve(undefined);
             }}>
+                <ContentComponent close={close} resolve={(result) => {
+                    close();
+                    resolve(result);
+                }}/>
+            </BlueprintDialog>
+        }
+
+        ReactDOM.render(<Wrapper/>, targetDiv);
+    })
+}
+
+
+/**
+ * More friendly way to show a modal MUI dialog. The dialog is also draggable and resizable. Usage:
+ * <pre><code>
+    import { DialogActions, DialogContent, DialogContentText} from "@mui/material";
+
+    const result = await showMuiDialog("My dialog", {}, (props) => {
+       return <React.Fragment>
+           <DialogContent>
+               <DialogContentText>
+                   text
+               </DialogContentText>
+               other content
+           </DialogContent>
+           <DialogActions>
+                <Button type="submit" onClick={() => props.resolve("OK")} >OK</Button>
+                <Button onClick={() => props.resolve(undefined)}>Cancel</Button>
+           </DialogActions>
+       </React.Fragment>
+     });
+   });
+
+  ... code after dialog was closed...
+   </code></pre>
+ * For docs, see: https://mui.com/material-ui/api/dialog/
+ * @param dialogProps
+ * @param ContentComponent
+ */
+export async function showMuiDialog<T>(title: string | ReactDOM.Element, dialogProps: Partial<DialogProps>, ContentComponent: FunctionComponent<{resolve: (result: T) => void, close: () => void}>) {
+    return new Promise<T|undefined>((resolve) => {
+        // We need some <div/> to render into
+        const targetDiv = document.createElement("div");
+        targetDiv.className = "ContainerForDialog"; // Tag it just for better debugging
+        document.body.append(targetDiv);
+
+        /**
+         * Wrapper component so we can control the open state
+         * @param props
+         * @constructor
+         */
+        function Wrapper(props: {}) {
+            let [open, setOpen] = useState(true);
+
+            function close() {
+                setOpen(false);
+                targetDiv.remove(); // clean up target div. A bit dirty but works
+            }
+
+            return <Dialog open={open} {...dialogProps}
+                           onClose={() => {
+                               close();
+                               resolve(undefined);
+                           }}
+                           PaperComponent={PaperComponent}
+                           maxWidth={false}
+                           aria-labelledby="draggable-dialog-title" {...dialogProps}>
+                <DialogTitle style={{cursor: 'move'}} id="draggable-dialog-title">{title}</DialogTitle>
                 <ContentComponent close={close} resolve={(result) => {
                     close();
                     resolve(result);
@@ -99,7 +175,18 @@ export async function showBlueprintDialog<T>(dialogProps: Partial<DialogProps>, 
 
         ReactDOM.render(<Wrapper/>, targetDiv);
     })
+
+
+    function PaperComponent(props) {
+        return (
+            <Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
+                <Paper {...props} sx={{resize: "both", ...(props.sx || {})}} />
+            </Draggable>
+        );
+    }
 }
+
+
 
 /**
  * Shows the (big) text content (like an exception) in a popup dialog
@@ -109,6 +196,7 @@ export async function showBlueprintDialog<T>(dialogProps: Partial<DialogProps>, 
  */
 export async function showResultText(value: string, title?: string, icon?) {
     copyStringToClipboard(value);
+    //TODO: For more space and resizability, we should use showMuiDialog instead
     await showBlueprintDialog({title, icon, style:{width:`${window.document.documentElement.clientWidth - 20}px`, height: `${window.document.documentElement.clientHeight - 100}px`} }, (props) => {
         return <div style={{height: "100%", display: "flex", flexDirection: "column"}}>
             <div className={Classes.DIALOG_BODY} style={{flexGrow: 1}}>
