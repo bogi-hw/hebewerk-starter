@@ -1,5 +1,5 @@
 import * as React from "react";
-import {FunctionComponent, useEffect, useLayoutEffect, useState} from "react";
+import {CSSProperties, FunctionComponent, useEffect, useLayoutEffect, useState} from "react";
 import {
     Button,
     ButtonGroup,
@@ -113,9 +113,9 @@ export async function showBlueprintDialog<T>(dialogProps: Partial<BlueprintDialo
 /**
  * More friendly way to show a modal MUI dialog. The dialog is also draggable and resizable. Usage:
  * <pre><code>
-    import { DialogActions, DialogContent, DialogContentText} from "@mui/material";
+ import { DialogActions, DialogContent, DialogContentText} from "@mui/material";
 
-    const result = await showMuiDialog("My dialog", {}, (props) => {
+ const result = await showMuiDialog("My dialog", {}, (props) => {
        return <React.Fragment>
            <DialogContent>
                <DialogContentText>
@@ -128,16 +128,16 @@ export async function showBlueprintDialog<T>(dialogProps: Partial<BlueprintDialo
                 <Button onClick={() => props.resolve(undefined)}>Cancel</Button>
            </DialogActions>
        </React.Fragment>
-     });
-   });
+     }, {width: "650px", height: "260px"}); // Specify css for default width/height (here), or minWidth/minHeight, or omit to fit content
+ });
 
-  ... code after dialog was closed...
-   </code></pre>
+ ... code after dialog was closed...
+ </code></pre>
  * For docs, see: https://mui.com/material-ui/api/dialog/
  * @param dialogProps
  * @param ContentComponent
  */
-export async function showMuiDialog<T>(title: string | ReactDOM.Element, dialogProps: Partial<DialogProps>, ContentComponent: FunctionComponent<{resolve: (result: T) => void, close: () => void}>) {
+export async function showMuiDialog<T>(title: string | React.ReactElement, dialogProps: Partial<DialogProps>, ContentComponent: FunctionComponent<{resolve: (result: T) => void, close: () => void}>, paperSx?: CSSProperties) {
     return new Promise<T|undefined>((resolve) => {
         // We need some <div/> to render into
         const targetDiv = document.createElement("div");
@@ -177,10 +177,10 @@ export async function showMuiDialog<T>(title: string | ReactDOM.Element, dialogP
     })
 
 
-    function PaperComponent(props) {
+    function PaperComponent(props: any) {
         return (
             <Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
-                <Paper {...props} sx={{resize: "both", ...(props.sx || {})}} />
+                <Paper {...props} sx={{resize: "both", ...(props.sx || {}), ...(paperSx || {})}} />
             </Draggable>
         );
     }
