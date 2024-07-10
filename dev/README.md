@@ -1,13 +1,11 @@
 # docker / docker-dompose development setup
 
-Aktuell ist das Setup für Docker auf einem RaspberrPi 4/5. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
-Arbeitsordner ist: `/home/username/hebewerk-starter`. Von dort wird das Docker-Image gebaut.
+Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
 
 ## Setup
-
 ### Raspberry Pi 4
  
-Es reicht ein raspbian lite (headless image). Dazu den SD-Konfigurator verwenden und schon einen User mit Passwort anlegen.  
+Es reicht ein raspbian lite (headless image / ohne Desktop). Dazu den SD-Konfigurator verwenden und schon einen User mit Passwort anlegen.  
 
 #### 1.
 ```bash
@@ -30,11 +28,12 @@ cd hebewerk-starter
 ```
 
 #### 3.
+
 ```bash
 # In den dev-Ordner gehen
 cd dev
 
-# Datei ausführbar machen 
+# Setup-Script ausführbar machen 
 chmod +x ./setup.sh
 
 # Setup-Script ausführen
@@ -45,20 +44,14 @@ chmod +x ./setup.sh
 - erstellt docker volumes für das Projekt
 - erstellt docker netzwerk für das Projekt
 - erstellt das docker image (build)
+- erstellt `.env` von `.env.default`
+
+# Konfigurieren
+`.env`-file bearbeiten (ist nicht im Repo)
+
 
 ## Development
-### Image erstellen
-```bash
-# mit cache
-docker-compose -f docker-compose-dev.yml build
-
-# ohne cache
-docker-compose -f docker-compose-dev.yml build --no-cache
-```
-
-### Starten
-
-#### Container
+### Container starten
 ```bash
 # ohne  console (detached)
 docker-compose -f docker-compose-dev.yml up -d
@@ -67,34 +60,31 @@ docker-compose -f docker-compose-dev.yml up -d
 docker-compose -f docker-compose-dev.yml up
 ```
 
-#### App
+### App starten
 ```bash
 # In den container gehen
 docker exec -it heberk-starter /bin/sh 
 
 # App starten
 npm run dev
-
-# ODER:
-
+```
+#### oder:
+```bash
 # dev
-docker exec heberk-starter /bin/sh -c "npm run dev"
+docker exec -it heberk-starter /bin/sh -c "npm run dev"
 
 # production
-docker exec heberk-starter /bin/sh -c "npm run start"
+docker exec -it heberk-starter /bin/sh -c "npm run start"
 
 # clean
-docker exec heberk-starter /bin/sh -c "npm run clean"
+docker exec -it heberk-starter /bin/sh -c "npm run clean"
 
 # build
-docker exec heberk-starter /bin/sh -c "npm run build"
+docker exec -it heberk-starter /bin/sh -c "npm run build"
 
 ```
 
 ## Production
-### Konfigurieren
-- `.env`-file bearbeiten
-
 ### Image bauen
 ```bash
 docker-compose build --no-cache
@@ -105,4 +95,9 @@ docker-compose build --no-cache
 docker-compose up -d
 ```
 
-
+## Workflow
+- das Repository lokal auf dem Rechner mit IDE auschecken
+- einen (SFTP-)Sync auf die Files, die bei lokaler Änderung automatisch auf dem Raspberry Pi geschoben werden
+- lokal ein `npm install` machen (für IDE)
+- immer das lokale Repo committen - nicht das vom Raspberry Pi
+- ...
