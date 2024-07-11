@@ -17,6 +17,12 @@ sudo apt-get install git
 #### 2.
 
 ```bash
+# Installations-Script downloaden
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+# Installations-Script ausführen
+sh ./get-docker.sh
+
 # Gruppe erstellen 
 sudo groupadd docker
 
@@ -24,7 +30,10 @@ sudo groupadd docker
 sudo usermod -aG docker $USER  
 
 # docker-compose downloaden
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-linux-x86_64 -o /usr/bin/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.28.1/docker-compose-linux-armv7 -o /usr/bin/docker-compose
+
+# ausführbar machen
+sudo chmod +x /usr/bin/docker-compose
 
 # Die binary der Gruppe docker hinzufügen
 sudo chgrp docker /usr/bin/docker-compose
@@ -102,7 +111,7 @@ docker-compose -f docker-compose-dev-silent.yml up -d
 wenn silent
 ```bash
 # In den container gehen
-docker exec -it heberk-starter_server /bin/sh 
+docker exec -it hebewerk-starter_server /bin/sh 
 
 # App starten
 npm run dev
@@ -111,29 +120,29 @@ npm run dev
 
 ```bash
 # dev
-docker exec -it heberk-starter_server /bin/sh -c "npm run dev"
+docker exec -it hebewerk-starter_server /bin/sh -c "npm run dev"
 
 # production
-docker exec -it heberk-starter_server /bin/sh -c "npm run start"
+docker exec -it hebewerk-starter_server /bin/sh -c "npm run start"
 
 # clean
-docker exec -it heberk-starter_server /bin/sh -c "npm run clean"
+docker exec -it hebewerk-starter_server /bin/sh -c "npm run clean"
 
 # build
-docker exec -it heberk-starter_server /bin/sh -c "npm run build"
+docker exec -it hebewerk-starter_server /bin/sh -c "npm run build"
 ```
 
 #### npm Modul installieren
 Im silent mode
 ```bash
 # reingehen in den container:
-docker exec -it heberk-starter_server /bin/sh
+docker exec -it hebewerk-starter_server /bin/sh
 
 # und danach
 npm install ...
 
 # oder vom Docker-Host direkt ausführen:
-docker exec -it heberk-starter_server /bin/sh -c "npm install ..."
+docker exec -it hebewerk-starter_server /bin/sh -c "npm install ..."
 ```
 
 Danach sich das neue `package.json` und `package-lock.json` vom Raspberry auf den IDE-Rechner ziehen (damit es im Repo ist)
@@ -156,7 +165,7 @@ docker-compose -f docker-compose-prod.yml up -d
 ### Frontend Build
 ```bash
 # silent ohne netzwerk und mounts, nur für build
-docker exec -it heberk-starter_server /bin/sh -c "npm run build"
+docker exec -it hebewerk-starter_server /bin/sh -c "npm run build"
 ```
 
 ### ...
@@ -169,5 +178,6 @@ docker exec -it heberk-starter_server /bin/sh -c "npm run build"
 - einen (SFTP-)Sync auf die Files, die bei lokaler Änderung automatisch auf dem Raspberry Pi geschoben werden
 - lokal ein `npm install` machen (für IDE)
 - immer das lokale Repo committen - nicht das vom Raspberry Pi
-- ...
+- `package.json` und `package-lock.json` vom Raspberry ziehen, wenn geändert
+- am besten im silent Modus arbeiten und entweder mit der Shell im Container oder vom Docker-Host mit `docker exec`
 
