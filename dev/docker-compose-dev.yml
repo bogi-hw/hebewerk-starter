@@ -1,0 +1,28 @@
+networks:
+  hebewerk-starter:
+    external: false
+    name: ${HBWRK_PROJECT_NAME}
+
+services:
+
+  hebewerk-starter_server:
+    extends:
+      file: docker-compose.yml
+      service: hebewerk-starter_server
+
+    # silent
+    #command: 'tail -f /dev/null'
+    command: 'npm run dev'
+
+    volumes:
+      - ../.:/${HBWRK_PROJECT_NAME}
+    networks:
+      - ${HBWRK_PROJECT_NAME}
+    ports:
+      - ${HBWRK_OUTER_PORT}:${HBWRK_INNER_PORT}
+    environment:
+      - DEBUG=true
+      - VERBOSE=2
+      - ENVIRONMENT=default
+      - NODE_ENV=development
+      - PWD=/${HBWRK_PROJECT_NAME}

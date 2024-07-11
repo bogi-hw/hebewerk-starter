@@ -1,0 +1,30 @@
+services:
+
+  hebewerk-starter_server:
+    build:
+      context: ../.
+      dockerfile: dev/Dockerfile
+    image: ${HBWRK_PROJECT_NAME}_server
+    working_dir: /hebewerk-starter
+
+    # the app is not starting !
+    # just enter:
+    #
+    #   docker exec -it hebewerk-starter_server /bin/sh -c "..."
+    #
+    # to run the server
+
+    # silent
+    command: 'tail -f /dev/null'
+
+    user: root
+    container_name: ${HBWRK_PROJECT_NAME}_server
+    volumes:
+      - /${HBWRK_PROJECT_NAME}/node_modules
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - DEBUG=true
+      - VERBOSE=2
+      - ENVIRONMENT=default
+      - NODE_ENV=development
+      - PWD=/${HBWRK_PROJECT_NAME}
