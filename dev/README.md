@@ -1,4 +1,4 @@
-# docker / docker-dompose development setup
+# docker / docker-compose development setup
 
 Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
 
