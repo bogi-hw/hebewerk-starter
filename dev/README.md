@@ -5,7 +5,8 @@ Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auc
 ## Setup
 ### Raspberry Pi 4
  
-Es reicht ein raspbian lite (headless image / ohne Desktop). Dazu den SD-Konfigurator verwenden und schon einen User mit Passwort anlegen.  
+- Es reicht ein raspbian lite (headless image / ohne Desktop).
+- Dazu den SD-Konfigurator verwenden und schon einen User mit Passwort anlegen.  
 
 #### 1. System updaten
 ```bash
@@ -72,8 +73,8 @@ cp .env.example .env
 
 ### Container starten
 
-Mit dem Start des `docker-compse-dev.yml` wird ein `npm run dev` ausgeführt.  
-Der Webserver ist dann erreichbar unter: `http://RASPBERRYPIHOSTNAMEORIP:3000`
+- Mit dem Start des `docker-compose-dev.yml` wird ein `npm run dev` ausgeführt.  
+- Der Webserver ist dann erreichbar unter: `http://RASPBERRYPIHOSTNAMEORIP:3000`
 
 ```bash
 # ohne  console (detached)
