@@ -7,14 +7,14 @@ Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auc
  
 Es reicht ein raspbian lite (headless image / ohne Desktop). Dazu den SD-Konfigurator verwenden und schon einen User mit Passwort anlegen.  
 
-#### 1.
+#### 1. System updaten
 ```bash
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install git
 ```
 
-#### 2.
+#### 2. Docker und Docker-Compose installieren (Juli24)
 
 ```bash
 # Installations-Script downloaden
@@ -46,7 +46,8 @@ sudo chgrp docker /usr/bin/docker-compose
 newgrp docker
 ```
 
-#### 3.
+### Repo ziehen
+
 ```bash
 # In den eigenen Home-Ordner wechseln
 cd ~/
@@ -58,24 +59,6 @@ git clone git@github.com:bogi-hw/hebewerk-starter.git
 # würde dann lauten: /home/pi/hebewerk-starter, wenn user pi verwendet wird
 cd hebewerk-starter 
 ```
-
-#### 4. @TODO
-
-```bash
-# In den dev-Ordner gehen
-cd dev
-
-# Setup-Script ausführbar machen 
-chmod +x ./setup.sh
-
-# Setup-Script ausführen
-./setup.sh
-```
-
-- ~~installiert docker und docker-compose~~
-- ~~erstellt docker volumes für das Projekt~~
-- ~~erstellt docker netzwerk für das Projekt~~
-- ~~erstellt das docker image (build)~~
 
 # Konfigurieren
 `.env`-file bearbeiten (ist nicht im Repo)
