@@ -4,3 +4,4 @@
 /**/*.map
 /tsconfig.tsbuildinfo
 .idea
+.env
