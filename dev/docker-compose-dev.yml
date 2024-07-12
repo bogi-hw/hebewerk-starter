@@ -20,6 +20,7 @@ services:
       - ${HBWRK_PROJECT_NAME}
     ports:
       - ${HBWRK_OUTER_PORT}:${HBWRK_INNER_PORT}
+      - 24678:24678
     environment:
       - DEBUG=true
       - VERBOSE=2
