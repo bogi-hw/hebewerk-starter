@@ -3,6 +3,8 @@
 Dieser Ordner / diese Anleitung zeigt dir, wie man mittels Docker eine Umgebung schafft, in der das Projekt **sicher** (=isoliert)
 ausgeführt werden kann. Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
 
+TODO: [Das Ganze noch vereinfachen/verbessern](https://github.com/bogi-hw/hebewerk-starter/issues/2)
+
 ## Setup
 ### Raspberry Pi 4
  
