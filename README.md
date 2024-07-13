@@ -27,14 +27,28 @@ Dagegen ist eine IDE im Browser, die dann wiederrum ein kleines Fenster hat, was
 
 TODO: Welche Plugins installieren in VS-Code ?
 
-### Lokal ausführen
+
+
+### Projekt lokal (auf deinem Computer) ausführen
 
 - [Git](https://git-scm.com/download/) installieren
 - Git Projekt klonen/runterladen: `git clone https://github.com/bogi-hw/hebewerk-starter.git`
 - [NodeJs](https://nodejs.org/en/download) installieren
 - npm packages holen und App ausführen (diesen Schritt auch bei Github Codespaces):
+
+<details>
+  <summary>⚠⚠⚠ Sicherheitswarnung zu `npm install`</summary>
+
+`npm install` installiert eine Menge Pakete (Abhängigkeiten von Abhängikeiten von... . Da kommt dann ganz schön was zusammen). Bei diesem Projekt sind es aktuell grade 281 Pakete (siehst du im node_modules Ordner). Dies sind alles open-source Projekte, die zwar von vielen hunderttausen Benutzern verwendet werden, 
+und die Öffentlichkeit hat hoffentlich ein gewisses Auge darauf, dass da kein Schadcode dabei ist. Aber letztlich steckt hinter jedem dieser Pakete dann doch ein random-guy aus dem Internet, dem das Vertrauen vorgeschossen wird.
+Es wird daher von uns dringend empfohlen, Schutzmaßnahmen zu treffen, die leider auch etwas nerfig sein können:
+- Eine virtuelle Maschine nur für dieses Projekt zu benutzen. Z.B. mit virtualbox oder vmware player (der ist hoffentlich noch kostenlos).
+- [Einen Dev-Server in einem Docker Container laufen zu lassen, in dem dieses Projekt ausgeführt wird](docker_dev_environment/README.md) 
+
+</details>
+
 ```bash
 cd hebewerk-starter
-npm install
+npm install --ignore-scripts
 npn run dev
 ```

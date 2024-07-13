@@ -1,6 +1,7 @@
-# docker / docker-compose development setup
+# Docker Dev Environment Installation
 
-Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
+Dieser Ordner / diese Anleitung zeigt dir, wie man mittels Docker eine Umgebung schafft, in der das Projekt **sicher** (=isoliert)
+ausgeführt werden kann. Aktuell ist das Setup für Docker auf einem **RaspberrPi 4/5**. Es kann aber auch jedes andere Linux (bspw. Ubuntu Server) verwendet werden.
 
 ## Setup
 ### Raspberry Pi 4
