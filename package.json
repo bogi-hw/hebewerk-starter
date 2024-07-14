@@ -5,10 +5,10 @@
   "type": "module",
   "main": "./server",
   "scripts": {
-    "dev": "npm run clean && cross-env NODE_ENV=development tsx watch server/server.ts",
+    "dev": "npm run clean && cross-env NODE_ENV=development tsx watch server/Application.ts",
     "clean": "tspc --build --clean && rimraf web/dist",
     "build": "tspc --build --force && cd web && vite build",
-    "start": "cross-env NODE_ENV=production node --enable-source-maps server/server.js"
+    "start": "cross-env NODE_ENV=production node --enable-source-maps server/Application.js"
   },
   "dependencies": {
     "express": "^4.17.13",
