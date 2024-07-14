@@ -25,7 +25,7 @@ Jetbrains Webstorm | Für die ultra Cracks. | Lokal | Jetbrains | ❌ | <a title
 _Vorteile bei Lokalen IDEs: Du siehst erst mal klarer, was ab geht in Sachen Server/Browser und hast eine bessere Kontrolle darüber. 
 Dagegen ist eine IDE im Browser, die dann wiederrum ein kleines Fenster hat, was einen Browser simuliert, welches zu dem simulierten Server deiner App im Browser (oder der Cloud) verbindet (plus dazu noch 'n Proxy dazwischen, der ein paar Sachen optimiert) vielleicht erst mal etwas Overkill in der Vorstellung ;) Dazu ist es verwirrend, dass die Browser Devtools nun die IDE und deine Anwendung gleichzeitig debuggen._
 
-TODO: Welche Plugins installieren in VS-Code ?
+Für Visual Studio Code sind folgende Plugins empfohlen: Eslint, Javascript booster, npm Intellisense, Gitlens (Achtung: Gitlens spamt dich ein bischen voll mit Kontextinfo. Kann man per Eintellungen bändigen).
 
 
 
