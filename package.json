@@ -25,7 +25,8 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@blueprintjs/core": "^5.10.3",
-    "react-draggable": "^4.4.6"
+    "react-draggable": "^4.4.6",
+    "membrace-db": "^1.0.3"
   },
   "devDependencies": {
     "tsx": "^4.7.0",

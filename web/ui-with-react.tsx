@@ -19,4 +19,6 @@ function App() {
     const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
     console.log(await greeterSession.greet("Bob"));
 
+
+    await greeterSession.addAnApple(false);
 })()
