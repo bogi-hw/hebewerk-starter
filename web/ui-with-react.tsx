@@ -5,7 +5,7 @@ import { RestfuncsClient } from "restfuncs-client";
 import { GreeterSession } from "../server/GreeterSession.js"; // Import to have types
 
 function App() {
-    return <div>Hello, TODO: Hier ein paar schöne MUI Elemente einfügen</div>
+    return <div>Der Kram hier unten / diese Textzeile wurde per React ausgegeben (web/ui-with-react.tsx). {/*TODO: Hier ein paar schöne MUI Elemente einfügen */}</div>
 }
 
 (async () => {
