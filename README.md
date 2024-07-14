@@ -7,7 +7,7 @@ Dieses Projekt...
   - Serverseitig läuft ebebfalls Javascript (Nodejs). Darunter dann:
     - Express: Webserver
     - [Restfuncs](https://github.com/bogeeee/restfuncs): Für eine super einfache Client<>Server Kommunikation (RPC)
-    - [MembraceDb](https://github.com/bogeeee/membrace-db): Eine fast nicht exisiterende Datenbank, die nur den Javascript-Objektbaum als .json Datei wegspeichert (oder lädt). Damit kommt man schon mal ziemlig weit und wir wollen es am Anfang nicht zu kompliziert machen. (kein SQL, keine Tabellen, kein ORM, keine Beziehungskonfiguration, kein extra Server)
+    - [MembraceDb](https://github.com/bogeeee/membrace-db): Eine fast nicht exisiterende Datenbank, die nur den Javascript-Objektbaum als .json Datei wegspeichert (oder lädt). Damit kommt man schon mal ziemlig weit und wir wollen es am Anfang nicht zu kompliziert machen. (kein SQL, keine Tabellen, kein ORM, keine Beziehungskonfiguration, kein extra Server) TODO: Momentan ist die DB wegen nerfiger .lock Fehlermeldung noch im Branch: `withDatabase` 
 
 ## Wo bekomme ich eine IDE her ?
 
