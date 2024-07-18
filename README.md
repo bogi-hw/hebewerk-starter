@@ -50,5 +50,5 @@ Es wird daher von uns dringend empfohlen, Schutzmaßnahmen zu treffen, die leide
 ```bash
 cd hebewerk-starter
 npm install --ignore-scripts
-npn run dev
+npm run dev
 ```
