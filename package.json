@@ -8,6 +8,7 @@
     "dev": "npm run clean && cross-env NODE_ENV=development tsx watch server/Application.ts",
     "clean": "tspc --build --clean && rimraf web/dist",
     "build": "tspc --build --force && cd web && vite build",
+    "build:docker": "npm run build && docker build -t mydockerimage .",
     "start": "cross-env NODE_ENV=production node --enable-source-maps server/Application.js"
   },
   "dependencies": {
@@ -25,15 +26,15 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@blueprintjs/core": "^5.10.3",
-    "react-draggable": "^4.4.6"
+    "react-draggable": "^4.4.6",
+    "cross-env": "^7.0.3",
+    "@types/node": "^20.12.7"
   },
   "devDependencies": {
     "tsx": "^4.7.0",
     "ts-patch": "^3.0.2",
     "restfuncs-transformer": "^1.0.0",
     "nodemon": "^2.0.15",
-    "cross-env": "^7.0.3",
-    "rimraf": "=5.0.5",
-    "@types/node": "^20.12.7"
+    "rimraf": "=5.0.5"
   }
 }
