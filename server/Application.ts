@@ -3,6 +3,8 @@ import {GreeterSession} from "./GreeterSession.js"
 import helmet from "helmet";
 import {createServer} from "vite";
 import express from "express";
+import {MembraceDb, persistence} from "membrace-db";
+import {ApplicationData} from "../model/ApplicationData.js";
 import http from "node:http";
 
 
@@ -14,7 +16,8 @@ import http from "node:http";
  * </p> 
  * <code><pre>
  * import {Application} from "....Application.js"
- * application. ... // <- do somethig with the global application object *
+ * application. ... // <- do somethig with the global application object
+ * application.data. ... // Access the data (objects that get stored in the database file /data/db.json and therefore persist a restart)
  * </pre></code>
  * 
  * Effects:
@@ -24,7 +27,18 @@ export class Application {
     // *** Configuration: ***
     port = 3000
 
+    /**
+     * you can specify a backup strategy for the database. Set to undefined to disable backups (i.e. if you handle backups externally instead of by this app)
+     */
+    keepBackups: MembraceDb<any>["keepBackups"] = { maxAgeInDays: 365 * 2 /* 2 years */ };
+
     // **** State: ****
+    db = new MembraceDb<ApplicationData>("./db", {
+        root: new ApplicationData(), // Initial content
+        classes: ApplicationData.classes,
+        keepBackups: this.keepBackups,    
+    });
+    
     server?: http.Server;
 
     constructor() {
@@ -57,6 +71,10 @@ export class Application {
 
         })()
 
+    }
+
+    get data() {
+        return this.db.root;
     }
 }
 
