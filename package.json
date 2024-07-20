@@ -28,7 +28,7 @@
     "@blueprintjs/core": "^5.10.3",
     "react-draggable": "^4.4.6",
     "cross-env": "^7.0.3",
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
     "membrace-db": "^1.0.4"
   },
   "devDependencies": {
