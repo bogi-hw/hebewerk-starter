@@ -11,7 +11,7 @@ Dieses Projekt...
 
 # Code bearbeiten
 
-Klicke hier: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts) zum Bearbeiten und ausprobieren.
+Klicke hier: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/bogi-hw/hebewerk-starter?title=Hebewerk%20Starter&file=web%2Fgame.ts) zum Bearbeiten und Ausprobieren.
 
 <details>
   <summary>Ich will es professioneller. Wo bekomme ich eine IDE her (Vergleichstabelle) ?</summary>
