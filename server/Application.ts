@@ -46,7 +46,7 @@ export class Application {
         // Create and start web server:
         (async () => {
 
-            const app = restfuncsExpress()
+            const app = restfuncsExpress() // "Express" is the most commonly used webserver in node for simple purposes. Here we use an enhanced version, which gives us websockets and cookie support which both play together. For an express-how-to, see: https://expressjs.com/de/guide/routing.html
 
             app.use("/greeterAPI", GreeterSession.createExpressHandler() );
 
