@@ -39,7 +39,7 @@ export class Application {
         keepBackups: this.keepBackups,    
     });
     
-    server?: http.Server;
+    httpServer?: http.Server;
 
     constructor() {
 
@@ -66,7 +66,7 @@ export class Application {
             }
 
 
-            this.server = app.listen(this.port)
+            this.httpServer = app.listen(this.port)
             console.log(`Server started: http://localhost:${this.port}`)
 
         })()

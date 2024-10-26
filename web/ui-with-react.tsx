@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import { RestfuncsClient } from "restfuncs-client";
 import { GreeterSession } from "../server/GreeterSession.js"; // Import to have types
 
+const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
+
 function App() {
     return <div>Der Kram hier unten / diese Textzeile wurde per React ausgegeben (web/ui-with-react.tsx). {/*TODO: Hier ein paar schöne MUI Elemente einfügen */}</div>
 }
@@ -16,7 +18,7 @@ function App() {
 
     // **** Eine Funktion auf dem Server aufrufen und Ergebnis ausgeben: ****
     // TODO: Why does VS-Code on github workspaces complain on the following line?:
-    const greeterSession = new RestfuncsClient<GreeterSession>("/greeterAPI", {/* options */}).proxy
+
     console.log(await greeterSession.greet("Bob"));
 
 
