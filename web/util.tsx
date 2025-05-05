@@ -19,6 +19,8 @@ import {IServerSession} from "restfuncs-common";
 import { Dialog,  DialogTitle, Paper} from "@mui/material";
 import {DialogProps} from "@mui/material/Dialog";
 import Draggable from 'react-draggable';
+import "@blueprintjs/core/lib/css/blueprint.css";
+import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 /**
  * (Dumb) Execute passed funktion
