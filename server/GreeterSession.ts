@@ -1,6 +1,5 @@
 import {remote, ServerSession, ServerSessionOptions} from "restfuncs-server";
 import {application} from "./Application.js"
-import {Apple} from "../model/Apple.js"
 
 export class GreeterSession extends ServerSession {
 
@@ -11,8 +10,7 @@ export class GreeterSession extends ServerSession {
     }
     
     @remote async addAnApple(withWorm: boolean) {
-        let apple = new Apple();
-        apple.hasWorm = withWorm;
+        let apple = {hasWorm: withWorm};
         application.data.apples.push(apple);
 
         application.db.markChanged();

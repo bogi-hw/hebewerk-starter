@@ -4,7 +4,6 @@ import helmet from "helmet";
 import {createServer} from "vite";
 import express from "express";
 import {MembraceDb, persistence} from "membrace-db";
-import {ApplicationData} from "../model/ApplicationData.js";
 import http from "node:http";
 
 
@@ -34,9 +33,10 @@ export class Application {
 
     // **** State: ****
     db = new MembraceDb<ApplicationData>("./db", {
-        root: new ApplicationData(), // Initial content
-        classes: ApplicationData.classes,
-        keepBackups: this.keepBackups,    
+        root: { // Initial content
+            apples: []
+        },
+        keepBackups: this.keepBackups,
     });
     
     httpServer?: http.Server;
@@ -76,6 +76,27 @@ export class Application {
     get data() {
         return this.db.root;
     }
+}
+
+
+
+
+/**
+ * Example model type
+ */
+export type ApplicationData = {
+
+    /**
+     * Example
+     */
+    apples: Apple[];
+}
+
+/**
+ * Example model type
+ */
+export type Apple= {
+    hasWorm: boolean;
 }
 
 /**
